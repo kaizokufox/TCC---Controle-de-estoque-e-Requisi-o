@@ -1,0 +1,217 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Detalhe Lote</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="~/css/icon-font.min.css" type='text/css' />
+    <!-- /js -->
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <!-- //js-->
+
+    <script>
+        // FUNÇAO - SOMENTE LETRAS
+        function Onlynumbers(e) {
+            var tecla = new Number();
+            if (window.event) {
+                tecla = e.keyCode;
+            }
+            else if (e.which) {
+                tecla = e.which;
+            }
+            else {
+                return true;
+            }
+            if ((tecla >= "97") && (tecla <= "122")) {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+                <div class="profile-widget">
+                    <!--cabeçalho-->                  
+                    <div class="clearfix"></div>
+                </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //header-ends -->
+                <!--outter-wp-->
+                <div class="outter-wp">
+
+                    <div class="sub-heard-part">
+                        <ol class="breadcrumb m-b-0">
+                            <li><a href="/Home/HomeEstoque/">Home</a></li>
+                            <li><a href="/Lote/ListarLotes/">Lote</a></li>
+                            <li class="active">Detalhe do Lote</li>
+                        </ol>
+                    </div>
+
+                    <!--//sub-heard-part-->
+                    <div class="graph-visual tables-main">
+
+                        <!-- FORMULARIO -->
+                        <form method="post">
+
+                            <h3 class="inner-tittle two">Detalhe do Lote</h3>
+
+                            <label class="novo"> Novo Ingrediente: </label>
+                            <a href="/Ingrediente/CadastrarIngrediente/@(Session["CodigoLote"])"> <i style="font-size: 14pt" class="glyphicon glyphicon-plus-sign" title="Cadastrar"></i> </a>
+
+                            <p></p>
+
+                            <p class="verde">@(ViewBag.MensagemSucesso)</p>
+                            <p class="vermelho">@(ViewBag.MensagemErro)</p>
+
+                            <div class="divteste">
+                                <p class="verde">@(ViewBag.MensagemSucesso) </p>
+                                <p class="vermelho">@(ViewBag.MensagemErro) </p>
+
+                                <div class="divteste">
+                                    <p class="Atencao">@(ViewBag.MensagemAtencao) </p>
+                                </div>
+                            </div>
+
+                            <p></p>
+
+                            <div class="graph">
+
+                                <div class="tables">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th id="op2">Ingrediente</th>
+                                                <th id="op3">Quantidade</th>
+                                                <th id="op3">Unidade de Medida</th>
+                                                <th id="opcoes">Alterar</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var I in ViewBag.DetalhesLote)
+                                            {
+                                                <tr>
+                                                    <td class="tdList">@(I.NomeIngrediente)    </td>
+                                                    <td class="tdList">@(I.QtdIngrediente)     </td>
+                                                    <td class="tdList">@(I.UnidadeMedida)      </td>
+
+                                                    <td class="tdIcon">
+                                                        <a href="/Ingrediente/AlterarIngrediente/@(I.CodigoIngrediente)">
+                                                            <i style="font-size: 14pt" class="glyphicon glyphicon-pencil" title="Alterar"></i>
+                                                        </a>
+
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <script src="~/js/cbpFWTabs.js"></script>
+                    <script>
+                        new CBPFWTabs(document.getElementById('tabs'));
+                    </script>
+
+                </div>
+
+            </div> <!--//inner-content--->
+
+        </div><!--//left-content-->
+        <!--footer section start-->
+        <footer>
+            <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
+        </footer>
+        <!--footer section end-->
+    <!--/sidebar-menu-->
+    <div class="sidebar-menu">
+        <header class="logo">
+            <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+            <span id="logo"> <h1>Estoque</h1>  </span>
+        </header>
+
+        <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+        <!--/down-->
+        <div class="down">
+            @foreach (Int32 Codigo in ViewBag.Imagens)
+            {
+                <a href="/Usuario/AlterarImagem"><img class="foto" src="~/Usuario/Ver/@(Codigo)" /></a>
+            }
+            <span class="name-caret">@Session["NomeUsuario"]</span>
+            <p>@(Session["NomeCargo"])</p>
+        </div>
+        <!--//down-->
+        <div class="menu">
+            <ul id="menu">
+
+                <li id="menu-academico"><a href="/Home/HomeEstoque"><i class="glyphicon glyphicon-home"></i> <span>Home</span> </a></li>
+                <li id="menu-academico"><a href="/Curso/ListarCursos"><i class="glyphicon glyphicon-tags"></i> <span>Cursos</span> </a></li>
+                <li id="menu-academico"><a href="/Turma/ListarTurmas"><i class="glyphicon glyphicon-th"></i> <span>Turmas</span> </a></li>
+                <li id="menu-academico"><a href="/Lote/ListarLotes"><i class="glyphicon glyphicon-tasks"></i> <span>Lotes</span> </a></li>
+                <li id="menu-academico"><a href="/Formulacao/ListarFormulacoes"><i class="glyphicon glyphicon-flash"></i> <span>Formulações</span> </a></li>
+                <li id="menu-academico"><a href="/Ingrediente/ListarIngredientes"><i class="glyphicon glyphicon-star"></i> <span>Ingredientes</span> </a></li>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    </div><!--//page-container-->
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({ "position": "absolute" });
+            }
+            else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({ "position": "relative" });
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <script src="~/js/jquery.nicescroll.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

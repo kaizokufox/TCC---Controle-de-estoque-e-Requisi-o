@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AlterarUsuario</title>
+</head>
+<body>
+    <div>
+        <p>@(ViewBag.Mensagem)</p>
+
+        <form method="post">
+            <p>
+                <label for="nif">NIF:</label>
+                <input type="number" name="nif" value="@(ViewBag.Usuario.NIF)" />
+            </p>
+            <p>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" value="@(ViewBag.Usuario.Nome)"/>
+            </p>
+            <p>
+                <label for="sorenome">Sobrenome:</label>
+                <input type="text" name="sobrenome" value="@(ViewBag.Usuario.Sobrenome)" />
+            </p>
+            <p>
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" value="@(ViewBag.Usuario.CPF)"/>
+            </p>
+            <p>
+                <label for="cargo">Cargo:</label>
+                <input type="text" name="cargo" value="@(ViewBag.Usuario.Cargo)"/>
+            </p>
+            <p>
+                <label for="telefone">Telefone:</label>
+                <input type="number" name="telefone" value="@(ViewBag.Usuario.Telefone)"/>
+            </p>
+            <p>
+                <label for="datanascimento">Data de Nascimento</label>
+                <input type="datetime" name="datanascimento" value="@(ViewBag.Usuario.DataNascimento)"/>
+            </p>
+            <p>
+                <label for=" email">Email:</label>
+                <input type="email" name="email" value="@(ViewBag.Usuario.Email)"/>
+            </p>
+            <p>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" value="@(ViewBag.Usuario.Senha)"/>
+            </p>
+            <p>
+                <input type="submit" name="enviar" value="Alterar"/>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

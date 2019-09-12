@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListarUsuarios</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <thead>
+                <tr>
+                    <th>NIF</th>
+                    <th>Nome</th>
+                    <th>SobreNome</th>
+                    <th>CPF</th>
+                    <th>Cargo</th>
+                    <th>Telefone</th>
+                    <th>Data Nascimento</th>
+                    <th>Email</th>
+                    <th>Senha</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var U in ViewBag.Usuarios)
+            {
+                    <tr>
+                        <td>@(U.NIF)</td>
+                        <td>@(U.Nome)</td>
+                        <td>@(U.Sobrenome)</td>
+                        <td>@(U.CPF)</td>
+                        <td>@(U.Cargo)</td>
+                        <td>@(U.Telefone)</td>
+                        <td>@(U.DataNascimento)</td>
+                        <td>@(U.Email)</td>
+                        <td>@(U.Senha)</td>
+                        <td>
+                            <a href="/Usuario/AlterarUsuario/@(U.NIF)">Alterar</a>
+                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

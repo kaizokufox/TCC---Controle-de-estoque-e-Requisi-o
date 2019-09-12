@@ -1,0 +1,513 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>VerPerfil</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="~/css/icon-font.min.css" type='text/css' />
+    <!-- /js -->
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <!-- //js-->
+
+    <script>
+        // FUNÇAO - SOMENTE LETRAS
+        function Onlynumbers(e) {
+            var tecla = new Number();
+            if (window.event) {
+                tecla = e.keyCode;
+            }
+            else if (e.which) {
+                tecla = e.which;
+            }
+            else {
+                return true;
+            }
+            if ((tecla >= "97") && (tecla <= "122")) {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+                <!-- header-starts -->
+                <div class="header-section">
+                    <!--menu-right-->
+                    <div class="top_menu">
+
+                        <script type="text/javascript">
+                            $('.main-search').hide();
+                            $('button').click(function () {
+                                $('.main-search').show();
+                                $('.main-search text').focus();
+                            }
+                            );
+                            $('.close').click(function () {
+                                $('.main-search').hide();
+                            });
+                        </script>
+                        <!--/profile_details-->
+                        <div class="profile_details_left">
+                            <ul class="nofitications-dropdown">
+                                <li class="dropdown note dra-down">
+
+                                    <script type="text/javascript">
+
+                                        function DropDown(el) {
+                                            this.dd = el;
+                                            this.placeholder = this.dd.children('span');
+                                            this.opts = this.dd.find('ul.dropdown > li');
+                                            this.val = '';
+                                            this.index = -1;
+                                            this.initEvents();
+                                        }
+                                        DropDown.prototype = {
+                                            initEvents: function () {
+                                                var obj = this;
+
+                                                obj.dd.on('click', function (event) {
+                                                    $(this).toggleClass('active');
+                                                    return false;
+                                                });
+
+                                                obj.opts.on('click', function () {
+                                                    var opt = $(this);
+                                                    obj.val = opt.text();
+                                                    obj.index = opt.index();
+                                                    obj.placeholder.text(obj.val);
+                                                });
+                                            },
+                                            getValue: function () {
+                                                return this.val;
+                                            },
+                                            getIndex: function () {
+                                                return this.index;
+                                            }
+                                        }
+
+                                        $(function () {
+
+                                            var dd = new DropDown($('#dd'));
+
+                                            $(document).click(function () {
+                                                // all dropdowns
+                                                $('.wrapper-dropdown-3').removeClass('active');
+                                            });
+
+                                        });
+
+                                    </script>
+
+                                </li>
+
+
+                                @if (Session["NivelAcesso"].Equals(4))
+                                {
+                                    <li class="dropdown note">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o"></i> <span class="badge">@(Session["NotificacaoDiretor"])</span></a>
+
+                                        <ul class="dropdown-menu two">
+
+                                            @if (Session["NotificacaoDiretor"].Equals(0))
+                                            {
+                                                <li>
+                                                    <div class="notification_header">
+                                                        <h3>Não tem nenhuma Requisicao para aprovar</h3>
+                                                    </div>
+                                                </li>
+                                            }
+                                            else if (Session["NotificacaoDiretor"].Equals(1))
+                                            {
+                                                <li>
+                                                    <a href="/Requisicao/ListaRequisicaoD">
+                                                        <div class="user_img"></div>
+                                                        <div class="notification_desc">
+                                                            <p>Existe @(Session["NotificacaoDiretor"]) requisição aguardando aprovação</p>
+                                                            <p><span>Clique aqui para visualizar a requisição</span></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="/Requisicao/ListaRequisicaoD">
+                                                        <div class="user_img"></div>
+                                                        <div class="notification_desc">
+                                                            <p>Existe @(Session["NotificacaoDiretor"]) requisições aguardando aprovação</p>
+                                                            <p><span>Clique aqui para visualizar as requisições</span></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                @if (Session["NivelAcesso"].Equals(3))
+                                {
+                                    <li class="dropdown note">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o"></i> <span class="badge">@(Session["NotificacaoCoordenador"])</span></a>
+
+                                        <ul class="dropdown-menu two">
+
+                                            @if (Session["NotificacaoCoordenador"].Equals(0))
+                                            {
+                                                <li>
+                                                    <div class="notification_header">
+                                                        <h3>Não tem nenhuma Requisicao para Autorizar</h3>
+                                                    </div>
+                                                </li>
+                                            }
+                                            else if (Session["NotificacaoCoordenador"].Equals(1))
+                                            {
+                                                <li>
+                                                    <a href="/Requisicao/Requisicoes">
+                                                        <div class="user_img"></div>
+                                                        <div class="notification_desc">
+                                                            <p>Existe @(Session["NotificacaoCoordenador"]) requisição aguardando autorização</p>
+                                                            <p><span>Clique aqui para visualizar a requisição</span></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="/Requisicao/Requisicoes">
+                                                        <div class="user_img"></div>
+                                                        <div class="notification_desc">
+                                                            <p>Existe @(Session["NotificacaoCoordenador"]) requisições aguardando autorização</p>
+                                                            <p><span>Clique aqui para visualizar as requisições</span></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <div class="profile-widget">
+                                        <!--cabeçalho-->
+                                        <div class="clearfix"></div>
+                                    </div>
+                                }
+                            </ul>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!--//profile_details-->
+                    </div>
+                    <!--//menu-right-->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //header-ends -->
+                <!--outter-wp-->
+                <div class="outter-wp">
+
+                    <div class="sub-heard-part">
+                        <ol class="breadcrumb m-b-0">
+                            <li><a href="/Home/Home/">Home</a></li>
+                            <li class="active">Perfil</li>
+                        </ol>
+                    </div>
+
+                    <!--ALTERAR FOTO DO PERFIL-->
+                    <div class="graph-visual tables-main">
+
+
+                        <form method="post">
+
+                            <h3 class="inner-tittle two">Foto do Perfil</h3>
+
+                            <div class="graph">
+                                <div class="tables">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            @foreach (Int32 Codigo in ViewBag.Imagens)
+                                            {
+                                                <div class="col-md-12 form-group buttons-ui">
+                                                    <img class="perfil" src="~/Usuario/Ver/@(Codigo)" />
+                                                </div>
+
+                                                <p></p>
+                                                <div class="clearfix"> </div>
+                                                <p></p>
+
+                                                <div class="alert alert-info" style="text-align:center">
+                                                    <strong>
+                                                        <a href="/Usuario/AlterarImagem"> Alterar Foto do Perfil</a>
+                                                    </strong>
+                                                </div>
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div> <!--ALTERAR FOTO DO PERFIL-->
+                    <!--DADOS PESSOAIS-->
+                    <div class="graph-visual tables-main">
+
+
+                        <form method="post">
+
+                            <h3 class="inner-tittle two">Dados Pessoais</h3>
+
+                            <div class="graph">
+                                <div class="tables">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            @foreach (var U in ViewBag.Perfil)
+                                            {
+                                                <div class="col-md-6 form-group1 group-mail">
+                                                    <label class="control-label">NIF:</label>
+                                                    <input type="text" name="nif" readonly="readonly" value="@(U.NIF)" readonly="readonly" />
+                                                </div>
+                                                <div class="clearfix"> </div>
+
+                                                <div class="vali-form">
+                                                    <div class="col-md-6 form-group1">
+                                                        <label class="control-label">Nome:</label>
+                                                        <input type="text" name="nome" readonly="readonly" value="@(U.Nome)" />
+                                                    </div>
+                                                    <div class="col-md-6 form-group1 form-last">
+                                                        <label class="control-label">Sobrenome:</label>
+                                                        <input type="text" name="sobrenome" readonly="readonly" value="@(U.Sobrenome)" />
+                                                    </div>
+                                                    <div class="clearfix"> </div>
+                                                </div>
+
+                                                <div class="vali-form">
+                                                    <div class="col-md-6 form-group1">
+                                                        <label class="control-label">CPF:</label>
+                                                        <input type="text" name="cpf" readonly="readonly" value="@(U.CPF)" />
+                                                    </div>
+                                                    <div class="col-md-6 form-group1 form-last">
+                                                        <label class="control-label">Data de Nascimento:</label>
+                                                        <input type="text" name="datanascimento" readonly="readonly" value="@(U.DataNascimento)" />
+                                                    </div>
+                                                    <div class="clearfix"> </div>
+                                                </div>
+
+                                                <div class="col-md-6 form-group1 group-mail">
+                                                    <label class="control-label">Cargo:</label>
+                                                    <input type="text" name="cargo" readonly="readonly" value="@(U.NomeCargo)" readonly="readonly" />
+                                                </div>
+                                                <div class="clearfix"> </div>
+
+                                                <p></p>
+                                                <div class="clearfix"> </div>
+                                                <p></p>
+
+                                                <div class="alert alert-info" style="text-align:center">
+                                                    <strong>
+                                                        <a href="/Usuario/AlterarDadosPessoais"> Alterar Dados Pessoais </a>
+                                                    </strong>
+                                                </div>
+
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--DADOS PESSOAIS-->
+                    <!--DADOS DE CONTATO-->
+                    <div class="graph-visual tables-main">
+
+
+                        <form method="post">
+
+                            <h3 class="inner-tittle two">Dados de Contato</h3>
+
+                            <div class="graph">
+                                <div class="tables">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            @foreach (var U in ViewBag.Perfil)
+                                            {
+                                                <div class="col-md-12 form-group1 group-mail">
+                                                    <label class="control-label">Email:</label>
+                                                    <input type="text" name="email" readonly="readonly" value="@(U.Email)" />
+                                                    <div class="clearfix"> </div>
+                                                </div>
+
+                                                <div class="vali-form">
+                                                    <div class="col-md-6 form-group1">
+                                                        <label class="control-label">Telefone:</label>
+                                                        <input type="text" name="telefoneFixo" readonly="readonly" value="@(U.TelefoneFixo)" />
+                                                    </div>
+                                                    <div class="col-md-6 form-group1 form-last">
+                                                        <label class="control-label">Celular:</label>
+                                                        <input type="text" name="telefoneMovel" readonly="readonly" value="@(U.TelefoneMovel)" />
+                                                    </div>
+                                                    <div class="clearfix"> </div>
+                                                </div>
+
+                                                <p></p>
+                                                <div class="clearfix"> </div>
+                                                <p></p>
+
+                                                <div class="alert alert-info" style="text-align:center">
+                                                    <strong>
+                                                        <a href="/Usuario/AlterarContato"> Alterar Dados de Contato </a>
+
+                                                    </strong>
+                                                </div>
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div> <!--DADOS DE CONTATO-->
+                    <!--DADOS DA SENHA-->
+                    <div class="graph-visual tables-main">
+
+
+                        <form method="post">
+
+                            <h3 class="inner-tittle two">Senha</h3>
+
+                            <div class="graph">
+                                <div class="tables">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            @foreach (var U in ViewBag.Perfil)
+                                            {
+                                                <div class="col-md-12 form-group1 group-mail">
+                                                    <label class="control-label">Senha:</label>
+                                                    <input type="text" name="senha" readonly="readonly" value="@(U.Senha)" />
+                                                    <div class="clearfix"> </div>
+                                                </div>
+
+                                                <p></p>
+                                                <div class="clearfix"> </div>
+                                                <p></p>
+
+                                                <div class="alert alert-info" style="text-align:center">
+                                                    <strong>
+                                                        <a href="/Usuario/AlterarSenha"> Alterar Senha </a>
+                                                    </strong>
+                                                </div>
+
+                                                <p class="vermelho"> *Por motivos de segurança, todas as senhas são criptografadas e mostradas com sua devida criptografia. Não é possivel visualizar a senha original.</p>
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--DADOS DA SENHA-->
+
+                    <script src="~/js/cbpFWTabs.js"></script>
+                    <script>
+                        new CBPFWTabs(document.getElementById('tabs'));
+                    </script>
+
+                </div>
+
+            </div> <!--//inner-content--->
+
+        </div><!--//left-content-->
+        <!--footer section start-->
+        <footer>
+            <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
+        </footer>
+        <!--footer section end-->
+        <!--/sidebar-menu-->
+        <div class="sidebar-menu">
+            <header class="logo">
+                <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+                <span id="logo"> <h1>Home</h1>  </span>
+            </header>
+            <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+            <!--/down-->
+            <div class="down">
+
+                @foreach (Int32 Codigo in ViewBag.Imagens)
+                {
+                    <a href="/Usuario/AlterarImagem"><img class="foto" src="~/Usuario/Ver/@(Codigo)" /></a>
+                }
+                <span class="name-caret">@Session["NomeUsuario"]</span>
+                <p>@(Session["NomeCargo"])</p>
+                <ul>
+                    <li><a class="tooltips" href="/Home/VerPerfil"><span>Perfil</span><i class="lnr lnr-user"></i></a></li>
+
+                    <li><a class="tooltips" href="/Login/Logout"><span>Sair</span><i class="lnr lnr-power-switch"></i></a></li>
+                </ul>
+            </div>
+            <!--//down-->
+            <div class="menu">
+                <ul id="menu">
+                    <li id="menu-academico"><a href="/Home/Home"><i class="glyphicon glyphicon-home"></i> <span>Home</span> </a></li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div><!--//page-container-->
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({ "position": "absolute" });
+            }
+            else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({ "position": "relative" });
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <script src="~/js/jquery.nicescroll.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+</body>
+</html>

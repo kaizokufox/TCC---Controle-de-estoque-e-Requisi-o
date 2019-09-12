@@ -1,0 +1,23 @@
+*******************INSERIR NA TABELA Status*******************
+
+INSERT INTO Status( NomeStatus) VALUES ( 'Pendente')
+INSERT INTO Status( NomeStatus) VALUES ( 'Aprovada pelo Coordenador')
+INSERT INTO Status( NomeStatus) VALUES ( 'Análise de Compra')
+INSERT INTO Status( NomeStatus) VALUES ( 'Aprovada pelo Diretor')
+INSERT INTO Status( NomeStatus) VALUES ( 'Cancelada')
+INSERT INTO Status( NomeStatus) VALUES ( 'Inicializada')
+
+
+*******************INSERIR NA TABELA Cargo*******************
+
+INSERT INTO Cargo( NomeCargo, NivelCargo) VALUES ( 'Comprador Técnico', 0)
+INSERT INTO Cargo( NomeCargo, NivelCargo) VALUES ( 'Professor', 1)
+INSERT INTO Cargo( NomeCargo, NivelCargo) VALUES ( 'Professor de Alimentos', 2)
+INSERT INTO Cargo( NomeCargo, NivelCargo) VALUES ( 'Coordenador', 3)
+INSERT INTO Cargo( NomeCargo, NivelCargo) VALUES ( 'Diretor', 4)
+
+
+***************INSERIR NA TABELA TipoRequisicao***************
+
+INSERT INTO TipoRequisicao ( NomeTipoRequisicao) VALUES ( 'Material')
+INSERT INTO TipoRequisicao ( NomeTipoRequisicao) VALUES ( 'Serviço')

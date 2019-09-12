@@ -1,0 +1,153 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Usuario</title>
+    <meta name="description" content="">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" media="screen" href="~/Content/superfish.css" />
+    <link rel="stylesheet" href="~/Content/nivo-slider.css" media="all" />
+    <link rel="stylesheet" href="~/Content/tweet.css" media="all" />
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" media="all" href="~/Content/lessframework.css" />
+
+    <!-- All JavaScript at the bottom, except this Modernizr build.
+       Modernizr enables HTML5 elements & feature detects for optimal performance.
+       Create your own custom Modernizr build: www.modernizr.com/download/ -->
+    <script src="js/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <!-- header wrapper -->
+        <div class="wrapper cf">
+            <div id="logo">
+                <a href="~/Views/Home/Home.cshtml"><img src="~/img/logo.png" alt="" /></a>
+            </div>
+        </div><!-- ENDS header wrapper -->
+        <!-- nav -->
+        <nav class="cf">
+            <div class="wrapper cf">
+                <ul id="nav" class="sf-menu">
+                    <li class="current-menu-item"><a href="~/Views/Home/Home.cshtml">HOME<i><b></b></i></a></li>
+                    <li>
+                        <a href="page.html">COMO USAR?<i><b></b></i></a>
+                        <ul>
+                            <li><a href="page.html">Geral</a></li>
+                            <li><a href="page-typography.html">Pessoal</a></li>
+                            <li><a href="page-elements.html">Elements</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">SAIR<i><b></b></i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ends nav -->
+
+    </header>
+    <!-- ENDS HEADER -->
+
+    <!-- FORMULARIO -->
+    <p>@(ViewBag.Mensagem)</p>
+
+    <div>
+
+        <form method="post">
+
+            <ul class="forumulario_cadastro">
+                <li>
+                    <label for="nif">NIF :</label>
+                    <input type="number" name="nif" size="40" />
+                </li>
+                <li>
+                    <label for="nome">Nome :</label>
+                    <input type="text" name="nome"  size="30" />
+                </li>
+                <li>
+                    <label for="sorenome">Sobrenome :</label>
+                    <input type="text" name="sobrenome" size="50"/>
+                </li>
+            </ul>
+           
+            <ul class="forumulario_cadastro">
+                <li>
+                    <label for="cpf">CPF :</label>
+                    <input type="text" name="cpf" />
+                </li>
+                <li>
+                    <label for="cargo">Cargo :</label>
+                    <input type="text" name="cargo" />
+                </li>
+                <li>
+                    <label for="telefone">Telefone :</label>
+                    <input type="number" name="telefone" />
+                </li>
+            </ul>
+
+            <ul class="forumulario_cadastro">
+                <li>
+                    <label for="datanascimento">Data de Nascimento :</label>
+                    <input type="datetime" name="datanascimento" />
+                </li>
+                <li>
+                    <label for="email">Email :</label>
+                    <input type="email" name="email" size="30"/>
+                </li>
+                <li>
+                    <label for="senha">Senha :</label>
+                    <input type="password" name="senha" />
+                </li>
+            </ul>         
+
+            <p>
+                <input type="submit" name="enviar" value="Cadastrar" />
+            </p>
+        </form>
+
+    </div>
+    <!-- ENDS FORMULARIO -->
+
+    <footer>
+
+        <!-- wrapper -->
+        <div class="wrapper cf">
+            <div id="footer-bottom">Copyright© 2016 - Developed by Diego Fernandes & Laressa Assis. </div>
+        </div><!-- ENDS wrapper -->
+
+
+    </footer>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="~/scripts/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <!-- scripts concatenated and minified via build script -->
+    <script src="~/scripts/custom.js"></script>
+
+    <!-- superfish -->
+    <script src="~/scripts/superfish-1.4.8/js/hoverIntent.js"></script>
+    <script src="~/scripts/superfish-1.4.8/js/superfish.js"></script>
+    <script src="~/scripts/superfish-1.4.8/js/supersubs.js"></script>
+    <!-- ENDS superfish -->
+
+    <script src="~/scripts/jquery.isotope.min.js"></script>
+    <script src="~/scripts/jquery.nivo.slider.js"></script>
+    <script src="~/scripts/css3-mediaqueries.js"></script>
+    <script src="~/scripts/tabs.js"></script>
+    <script src="~/scripts/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+    <!-- end scripts -->
+</body>
+</html>

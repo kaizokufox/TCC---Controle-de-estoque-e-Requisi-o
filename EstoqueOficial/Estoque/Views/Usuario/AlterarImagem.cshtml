@@ -1,0 +1,188 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Alterar Imagem</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="~/css/icon-font.min.css" type='text/css' />
+    <!-- /js -->
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <!-- //js-->
+
+    <script>
+        // FUNÇAO - SOMENTE LETRAS
+        function Onlynumbers(e) {
+            var tecla = new Number();
+            if (window.event) {
+                tecla = e.keyCode;
+            }
+            else if (e.which) {
+                tecla = e.which;
+            }
+            else {
+                return true;
+            }
+            if ((tecla >= "97") && (tecla <= "122")) {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+                <!-- header-starts -->
+                <div class="header-section">
+                    <div class="profile-widget">
+                        <!--cabeçalho-->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //header-ends -->
+                <!--outter-wp-->
+                <div class="outter-wp">
+
+                    <div class="sub-heard-part">
+                        <ol class="breadcrumb m-b-0">
+                            <li><a href="/Home/Home/">Home</a></li>
+                            <li><a href="/Home/VerPerfil/">Perfil</a></li>
+                            <li class="active">Alterar Foto do Perfil</li>
+                        </ol>
+                    </div>
+
+                    <!--//form-main-->
+                    <div class="forms-main">
+
+                        <h2 class="inner-tittle">Alterar Imagem</h2>
+
+                        <div class="graph-form">
+                            <div class="validation-form">
+
+                                @foreach (Int32 Codigo in ViewBag.Imagens)
+                                {
+                                    <div class="col-md-12 form-group buttons-ui">
+                                        <img class="perfil" src="~/Usuario/Ver/@(Codigo)"   />
+                                    </div>
+                                }
+
+                                <form method="post" enctype="multipart/form-data">
+
+                                    <p class="vermelho">@(ViewBag.MensagemErro) </p>
+                                    <p class="verde">@(ViewBag.MensagemSucesso) </p>
+                                   
+
+                                    <div class="form-group buttons-2">
+                                        <input type="file" name="Imagem" accept="image/*" id="Imagem" @*style="text-align:center"*@ multiple />
+                                    </div>
+
+                                    <div class="col-md-12 form-group buttons-2">
+                                        <button type="submit" name="enviar" value="Alterar" class="btn btn-primary">Alterar</button>
+                                        <a href="/Home/VerPerfil"><button type="button" name="enviar" value="Cancelar" class="btn btn-danger">Cancelar </button></a>
+                                    </div>
+                                    <div class="clearfix"> </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <script src="~/js/cbpFWTabs.js"></script>
+                <script>
+                    new CBPFWTabs(document.getElementById('tabs'));
+                </script>
+                   
+        </div> <!--//inner-content--->
+    
+    </div><!--//left-content-->
+    <!--footer section start-->
+    <footer>
+        <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
+    </footer>
+    <!--footer section end-->
+    
+        <!--/sidebar-menu-->
+        <div class="sidebar-menu">
+            <header class="logo">
+                <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+                <span id="logo"> <h1>Home</h1>  </span>
+            </header>
+            <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+            <!--/down-->
+            <div class="down">
+
+                @foreach (Int32 Codigo in ViewBag.Imagens)
+                {
+                    <a href="/Usuario/AlterarImagem"><img class="foto" src="~/Usuario/Ver/@(Codigo)" /></a>
+                }
+                <span class="name-caret">@Session["NomeUsuario"]</span>
+                <p>@(Session["NomeCargo"])</p>
+            </div>
+            <!--//down-->
+            <div class="menu">
+                <ul id="menu">
+                    <li id="menu-academico"><a href="/Home/Home"><i class="glyphicon glyphicon-home"></i> <span>Home</span> </a></li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div><!--//page-container-->  
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({ "position": "absolute" });
+            }
+            else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({ "position": "relative" });
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <script src="~/js/jquery.nicescroll.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+

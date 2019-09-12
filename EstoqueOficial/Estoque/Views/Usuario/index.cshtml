@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuario</title>
+</head>
+<body>
+    <p>@(ViewBag.Mensagem)</p>
+
+    <div>
+
+        <form method="post">
+
+            <p>
+                <label for="nif">NIF:</label>
+                <input type="number" name="nif" />
+            </p>
+            <p>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" />
+            </p>
+            <p>
+                <label for="sorenome">Sobrenome:</label>
+                <input type="text" name="sobrenome" />
+            </p>
+            <p>
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" />
+            </p>
+            <p>
+                <label for="cargo">Cargo:</label>
+                <input type="text" name="cargo" />
+            </p>
+            <p>
+                <label for="telefone">Telefone:</label>
+                <input type="number" name="telefone" />
+            </p>
+            <p>
+                <label for="datanascimento">Data de Nascimento</label>
+                <input type="datetime" name="datanascimento" />
+            </p>
+            <p>
+                <label for=" email">Email:</label>
+                <input type="email" name="email" />
+            </p>
+            <p>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" />
+            </p>
+            <p>
+                <input type="submit" name="enviar" value="Cadastrar" />
+            </p>
+        </form>
+
+    </div>
+</body>
+</html>

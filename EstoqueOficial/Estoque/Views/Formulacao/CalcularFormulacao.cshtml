@@ -1,0 +1,221 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Cálculo de Formulação</title>
+    <meta name="description" content="">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" media="screen" href="~/Content/superfish.css" />
+    <link rel="stylesheet" href="~/Content/nivo-slider.css" media="all" />
+    <link rel="stylesheet" href="~/Content/tweet.css" media="all" />
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" media="all" href="~/Content/lessframework.css" />
+
+    <!-- All JavaScript at the bottom, except this Modernizr build.
+       Modernizr enables HTML5 elements & feature detects for optimal performance.
+       Create your own custom Modernizr build: www.modernizr.com/download/ -->
+    <script src="js/modernizr-2.5.3.min.js"></script>
+
+    <script>
+        // FUNÇAO - SOMENTE LETRAS
+        function Onlynumbers(e)
+        {
+	        var tecla=new Number();
+	        if(window.event) {
+		        tecla = e.keyCode;
+	        }
+	        else if(e.which) {
+		        tecla = e.which;
+	        }
+	        else {
+		        return true;
+	        }
+	        if((tecla >= "97") && (tecla <= "122")){
+		        return false;
+	        }
+        }
+
+        // FUNÇAO - SOMENTE LETRAS
+        function Onlychars(e)
+        {
+	        var tecla=new Number();
+	        if(window.event) {
+		        tecla = e.keyCode;
+	        }
+	        else if(e.which) {
+		        tecla = e.which;
+	        }
+	        else {
+		        return true;
+	        }
+	        if((tecla >= "48") && (tecla <= "57")){
+		        return false;
+	        }
+        }
+    </script>
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <!-- header wrapper -->
+        <div class="wrapper cf">
+            <div id="logo">
+                <a href="/Home/Home"><img id="imagem2" src="~/img/logo1.png" /></a>
+            </div>
+        </div><!-- ENDS header wrapper -->
+        <!-- nav -->
+        <nav class="cf">
+            <div class="wrapper cf">
+                <ul id="nav" class="sf-menu">
+                    <li><a href="/Home/Home">HOME<i><b></b></i></a></li>
+
+                    <li>
+                        <a href="/Usuario/ListarUsuarios"> USUARIO <i><b></b></i></a>
+                        <ul>
+                            <li><a href="/Usuario/CadastrarUsuario"> Cadastrar </a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/Curso/ListarCursos"> CURSO <i><b></b></i></a>
+                        <ul>
+                            <li><a href="/Curso/CadastrarCurso"> Cadastrar </a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/Turma/ListarTurmas"> TURMA <i><b></b></i></a>
+                        <ul>
+                            <li><a href="/Turma/CadastrarTurma"> Cadastrar </a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/Lote/ListarLotes"> LOTE <i><b></b></i></a>
+                        <ul>
+                            <li><a href="/Lote/CadastrarLote"> Cadastrar </a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/Ingrediente/ListarIngredientes"> INGREDIENTE <i><b></b></i></a>
+                    </li>
+
+                    <li>
+                        <a href="/Formulacao/ListarFormulacoes"> FORMULACAO <i><b></b></i></a>
+                        <ul>
+                            <li><a href="/Formulacao/CadastrarFormulacao"> Cadastrar </a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/Login/Logout">SAIR<i><b></b></i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ends nav -->
+
+    </header>
+    <!-- ENDS HEADER -->
+    <!-- FORMULARIO -->
+    <div class="mensagemForm">
+        <p class="verde">@(ViewBag.MensagemSucesso) </p>
+        <p class="vermelho">@(ViewBag.MensagemErro) </p>
+
+        <div class="divteste">
+            <p class="Atencao">@(ViewBag.MensagemAtencao) </p>
+        </div>
+    </div>
+
+    <div class="corpo_cadastro">
+
+        <form method="post">
+
+            <h1 class="headline"> CALCULO DA FORMULACAO </h1>
+
+            <div class="form_lista">
+
+                <table class="calcular">
+            
+                    <tbody>
+                        @foreach (var D in ViewBag.DetalhesFormulacoes)
+                        {
+                            <tr>
+                                <td id="op2">@(D.NomeIngrediente)   <img id="lin" src="~/img/linha.png" />  </td>
+                                <td id="op3">@(D.Porcentagem) %      <img id="lin" src="~/img/linha.png" />  </td>
+                                <td id="op3">
+                                    @if ((ViewBag.ListaResultado) != null)
+                                    {
+                                        foreach (var FC in ViewBag.ListaResultado)
+                                        {
+                                        <img id="lin" src="~/img/linha.png" />
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                </table>
+
+                <label id="headline2"> Total :</label>
+                <input  class="caixa_texto" type="text" onkeypress="return Onlynumbers(event)" name="total" />
+            </div>
+
+            <ul class="bt_TC">
+                <li>
+                    <input class="botaoForm" type="submit" name="enviar" value="Calcular" />
+                </li>
+            </ul>
+        </form>
+
+        <ul class="bt_TC">
+            <li>
+                <a href="/Formulacao/ListarFormulacoes"> <input class="botaoForm" type="submit" name="enviar" value="Cancelar" /> </a>
+            </li>
+        </ul>
+    </div>
+    <!-- ENDS FORMULARIO -->
+
+    <footer>
+
+        <!-- wrapper -->
+        <div class="wrapper cf">
+            <div id="footer-bottom">Copyright© 2016 - Developed by Diego Fernandes & Laressa Assis. </div>
+        </div><!-- ENDS wrapper -->
+
+
+    </footer>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="~/scripts/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <!-- scripts concatenated and minified via build script -->
+    <script src="~/scripts/custom.js"></script>
+
+    <!-- superfish -->
+    <script src="~/scripts/superfish-1.4.8/js/hoverIntent.js"></script>
+    <script src="~/scripts/superfish-1.4.8/js/superfish.js"></script>
+    <script src="~/scripts/superfish-1.4.8/js/supersubs.js"></script>
+    <!-- ENDS superfish -->
+
+    <script src="~/scripts/jquery.isotope.min.js"></script>
+    <script src="~/scripts/jquery.nivo.slider.js"></script>
+    <script src="~/scripts/css3-mediaqueries.js"></script>
+    <script src="~/scripts/tabs.js"></script>
+    <script src="~/scripts/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+    <!-- end scripts -->
+</body>
+</html>

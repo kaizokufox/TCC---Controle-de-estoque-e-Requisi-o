@@ -1,0 +1,523 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HomeRequisição</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="~/css/icon-font.min.css" type='text/css' />
+    <!-- /js -->
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <!-- //js-->
+
+    <script>
+        // FUNÇAO - SOMENTE LETRAS
+        function Onlynumbers(e) {
+            var tecla = new Number();
+            if (window.event) {
+                tecla = e.keyCode;
+            }
+            else if (e.which) {
+                tecla = e.which;
+            }
+            else {
+                return true;
+            }
+            if ((tecla >= "97") && (tecla <= "122")) {
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+                <!-- header-starts -->
+                <div class="header-section">
+                    <div class="top_menu">
+
+                        <script type="text/javascript">
+                            $('.main-search').hide();
+                            $('button').click(function () {
+                                $('.main-search').show();
+                                $('.main-search text').focus();
+                            }
+                            );
+                            $('.close').click(function () {
+                                $('.main-search').hide();
+                            });
+                        </script>
+                        <!--/profile_details-->
+                        <div class="profile_details_left">
+                            <ul class="nofitications-dropdown">
+                                <li class="dropdown note dra-down">
+
+                                    <script type="text/javascript">
+
+                                        function DropDown(el) {
+                                            this.dd = el;
+                                            this.placeholder = this.dd.children('span');
+                                            this.opts = this.dd.find('ul.dropdown > li');
+                                            this.val = '';
+                                            this.index = -1;
+                                            this.initEvents();
+                                        }
+                                        DropDown.prototype = {
+                                            initEvents: function () {
+                                                var obj = this;
+
+                                                obj.dd.on('click', function (event) {
+                                                    $(this).toggleClass('active');
+                                                    return false;
+                                                });
+
+                                                obj.opts.on('click', function () {
+                                                    var opt = $(this);
+                                                    obj.val = opt.text();
+                                                    obj.index = opt.index();
+                                                    obj.placeholder.text(obj.val);
+                                                });
+                                            },
+                                            getValue: function () {
+                                                return this.val;
+                                            },
+                                            getIndex: function () {
+                                                return this.index;
+                                            }
+                                        }
+
+                                        $(function () {
+
+                                            var dd = new DropDown($('#dd'));
+
+                                            $(document).click(function () {
+                                                // all dropdowns
+                                                $('.wrapper-dropdown-3').removeClass('active');
+                                            });
+
+                                        });
+
+                                    </script>
+
+                                </li>
+
+
+                                @if (Session["NivelAcesso"].Equals(4))
+                                {
+                                    <li class="dropdown note">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o"></i> <span class="badge">@(Session["NotificacaoDiretor"])</span></a>
+
+                                        <ul class="dropdown-menu two">
+
+                                            @if (Session["NotificacaoDiretor"].Equals(0))
+                                            {
+                                                <li>
+                                                    <div class="notification_header">
+                                                        <h3>Não tem nenhuma Requisicao para aprovar</h3>
+                                                    </div>
+                                                </li>
+                                            }
+                                            else if (Session["NotificacaoDiretor"].Equals(1))
+                                            {
+                                                <li>
+                                                    <a href="/Requisicao/ListaRequisicaoD">
+                                                        <div class="user_img"></div>
+                                                        <div class="notification_desc">
+                                                            <p>Existe @(Session["NotificacaoDiretor"]) requisição aguardando aprovação</p>
+                                                            <p><span>Clique aqui para visualizar a requisição</span></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="/Requisicao/ListaRequisicaoD">
+                                                        <div class="user_img"></div>
+                                                        <div class="notification_desc">
+                                                            <p>Existe @(Session["NotificacaoDiretor"]) requisições aguardando aprovação</p>
+                                                            <p><span>Clique aqui para visualizar as requisições</span></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                @if (Session["NivelAcesso"].Equals(3))
+                                {
+                                    <li class="dropdown note">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o"></i> <span class="badge">@(Session["NotificacaoCoordenador"])</span></a>
+
+                                        <ul class="dropdown-menu two">
+
+                                            @if (Session["NotificacaoCoordenador"].Equals(0))
+                                            {
+                                                <li>
+                                                    <div class="notification_header">
+                                                        <h3>Não tem nenhuma Requisicao para Autorizar</h3>
+                                                    </div>
+                                                </li>
+                                            }
+                                            else if (Session["NotificacaoCoordenador"].Equals(1))
+                                            {
+                                                <li>
+                                                    <a href="/Requisicao/Requisicoes">
+                                                        <div class="user_img"></div>
+                                                        <div class="notification_desc">
+                                                            <p>Existe @(Session["NotificacaoCoordenador"]) requisição aguardando autorização</p>
+                                                            <p><span>Clique aqui para visualizar a requisição</span></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="/Requisicao/Requisicoes">
+                                                        <div class="user_img"></div>
+                                                        <div class="notification_desc">
+                                                            <p>Existe @(Session["NotificacaoCoordenador"]) requisições aguardando autorização</p>
+                                                            <p><span>Clique aqui para visualizar as requisições</span></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <div class="profile-widget">
+                                        <!--cabeçalho-->
+                                        <div class="clearfix"></div>
+                                    </div>
+                                }
+                            </ul>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!--//profile_details-->
+                    </div>
+                    <!--//menu-right-->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //header-ends -->
+                <!--outter-wp-->
+                <div class="outter-wp">
+
+                    <!--//sub-heard-part-->
+                    <div class="graph-visual tables-main">
+
+                        <div id="tabs" class="tabs">
+                            <div class="graph">
+                                <nav>
+                                    <ul>
+                                        <li><a href="#section-1" class="icon-shop"><i class="glyphicon glyphicon-tasks"></i> <span>Requisição</span></a></li>
+                                        <li><a href="#section-2" class="icon-cup"><i class="glyphicon glyphicon-book"></i> <span>Historico de Requisição</span></a></li>
+                                        @*<li><a href="#section-3" class="icon-food"><i class="glyphicon glyphicon-tasks"></i> <span>Lote</span></a></li>*@
+                                    </ul>
+                                </nav>
+
+                                <div class="content tab">
+                                    <section id="section-1">
+                                        <form method="post">
+
+                                            <h4>Lista de Requisições</h4>
+                                            <p></p>
+
+                                            <div class="graph">
+
+
+                                                <div class="tables">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th id="op1">Codigo Requisição</th>
+                                                                <th id="op2">NIF</th>
+                                                                <th id="op3">Tipo de Requisição</th>
+                                                                <th id="op4">Status</th>
+                                                                <th id="op5">Data de Criação</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var R in ViewBag.ListaRequisicao)
+                                                            {
+                                                                <tr>
+                                                                    <td class="tdList">@(R.CodigoRequisicao)        </td>
+                                                                    <td class="tdList">@(R.FK_NIFUsuario)           </td>
+                                                                    <td class="tdList">@(R.NomeTipoRequisicao)      </td>
+                                                                    <td class="tdList">@(R.NomeStatus)              </td>
+                                                                    <td class="tdList">@(R.DataRequisicao)             </td>
+                                                                    <td class="tdIcon"></td>
+
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </section>
+
+
+                                    <section id="section-2">
+                                        <form method="post">
+
+                                            <h4>Historico de Requisições</h4>
+                                            <p></p>
+
+                                            <p></p>
+
+                                            <div class="graph">
+
+                                                <div class="tables">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Codigo Requisição</th>
+                                                                <th>NIF</th>
+                                                                <th>Tipo de Requisição</th>
+                                                                <th>Status</th>
+                                                                <th>Data de Criação</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var R in ViewBag.Historico)
+                                                            {
+                                                                <tr>
+                                                                    <td class="tdList">@(R.CodigoRequisicao)        </td>
+                                                                    <td class="tdList">@(R.FK_NIFUsuario)           </td>
+                                                                    <td class="tdList">@(R.NomeTipoRequisicao)      </td>
+                                                                    <td class="tdList">@(R.NomeStatus)              </td>
+                                                                    <td class="tdList">@(R.DataRequisicao)          </td>
+                                                                    <td class="tdIcon"></td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </section>
+
+                                    @*<section id="section-3">
+                                            <form method="post">
+                                                <h4 class="inner-tittle two">Lista do Lote</h4>
+                                                <p></p>
+                                                <div class="graph">
+
+                                                    <div class="tables">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th id="op1">Codigo</th>
+                                                                    <th id="op3">Nome</th>
+                                                                    <th id="op3">Data de Entrada</th>
+                                                                    <th id="op3">Data de Validade</th>
+                                                                    <th id="op3">Inseridos / Total Itens</th>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+                                                                @foreach (var L in ViewBag.Lotes)
+                                                                {
+                                                                    <tr>
+                                                                        <td class="tdList">@(L.CodigoLote)          </td>
+                                                                        <td class="tdList">@(L.NomeLote)            </td>
+                                                                        <td class="tdList1">@(L.DataEntrada)        </td>
+                                                                        <td class="tdList1">@(L.DataValidade)       </td>
+                                                                        <td class="tdList">@(L.inserido)/@(L.Quantidadeitens)     </td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </section>*@
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <script src="~/js/cbpFWTabs.js"></script>
+                <script>
+                    new CBPFWTabs(document.getElementById('tabs'));
+                </script>
+
+            </div> <!--//inner-content--->
+
+        </div><!--//left-content-->
+        <!--footer section start-->
+        <footer>
+            <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
+        </footer>
+        <!--footer section end-->
+        <!--/sidebar-menu-->
+        <div class="sidebar-menu">
+            <header class="logo">
+                <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+                <span id="logo"> <h1>Requisição</h1>  </span>
+            </header>
+
+            <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+            <!--/down-->
+            <div class="down">
+                @foreach (Int32 Codigo in ViewBag.Imagens)
+                {
+                    <a href="/Usuario/AlterarImagem"><img class="foto" src="~/Usuario/Ver/@(Codigo)" /></a>
+                }
+                <span class="name-caret">@Session["NomeUsuario"]</span>
+                <p>@(Session["NomeCargo"])</p>
+
+            </div>
+            <!--//down-->
+            <div class="menu">
+                <ul id="menu">
+
+                    @if (Session["NivelAcesso"].Equals(4))
+                    {
+                        <li id="menu-academico">
+                            <a href="#"><i class="glyphicon glyphicon-plus"></i> <span>Empresas</span> <span class="fa fa-angle-right" style="float: right"></span> </a>
+                            <ul id="menu-academico-sub">
+                                <li id="menu-academico-avaliacoes"><a href="/Empresa/CadastrarEmpresa">Cadastrar Empresa</a></li>
+                                <li id="menu-academico-boletim"><a href="/Empresa/ListarEmpresas">Listar Empresas</a></li>
+                            </ul>
+                        </li>
+
+                        <li id="menu-academico">
+                            <a href="#"><i class="glyphicon glyphicon-file"></i> <span>Requisição de Compra</span> <span class="fa fa-angle-right" style="float: right"></span> </a>
+                            <ul id="menu-academico-sub">
+                                <li id="menu-academico-avaliacoes"><a href="/Requisicao/CadastrarRequisicao">Solicitar Requisição</a></li>
+                                <li id="menu-academico-boletim"><a href="/Requisicao/ListarRequisicoes">Listar Requisições</a></li>
+                                <li id="menu-academico-boletim"><a href="/Requisicao/Requisicoes">Requisições Pendentes</a></li>
+                                <li id="menu-academico-boletim"><a href="/Requisicao/ListaRequisicaoD">Aprovar Requisições</a></li>
+                                <li id="menu-academico-boletim"><a href="/Requisicao/ListarOrcamentos">Requisições em Orçamento</a></li>
+                            </ul>
+                        </li>
+                        <li id="menu-academico"><a href="/Requisicao/ListarRequisicoesAprovadas"><i class="glyphicon glyphicon-thumbs-up"></i> <span>Requisições Aprovadas</span> </a></li>
+                        <li id="menu-academico"><a href="/Requisicao/Historico"><i class="glyphicon glyphicon-book"></i> <span>Histórico das Requisições</span> </a></li>
+
+                    }
+                    else if (Session["NivelAcesso"].Equals(3))
+                    {
+
+                        <li id="menu-academico">
+                            <a href="#"><i class="glyphicon glyphicon-file"></i> <span>Requisição de Compra</span> <span class="fa fa-angle-right" style="float: right"></span> </a>
+                            <ul id="menu-academico-sub">
+                                <li id="menu-academico-avaliacoes"><a href="/Requisicao/CadastrarRequisicao">Solicitar Requisição</a></li>
+                                <li id="menu-academico-boletim"><a href="/Requisicao/ListarRequisicoes">Listar Requisições</a></li>
+                                <li id="menu-academico-boletim"><a href="/Requisicao/Requisicoes">Requisições Pendentes</a></li>
+                            </ul>
+                        </li>
+                        <li id="menu-academico"><a href="/Requisicao/ListarRequisicoesAprovadas"><i class="glyphicon glyphicon-thumbs-up"></i> <span>Requisições Aprovadas</span> </a></li>
+                        <li id="menu-academico"><a href="/Requisicao/Historico"><i class="glyphicon glyphicon-book"></i> <span>Histórico das Requisições</span> </a></li>
+
+                    }
+
+                    else if (Session["NivelAcesso"].Equals(1) || Session["NivelAcesso"].Equals(2))
+                    {
+
+                        <li id="menu-academico"><a href="/Requisicao/CadastrarRequisicao"><i class="glyphicon glyphicon-file"></i> <span>Solicitar Requisição</span> </a></li>
+                        <li id="menu-academico"><a href="/Requisicao/ListarRequisicoes"><i class="glyphicon glyphicon-tasks"></i> <span>Listar Requisições</span> </a></li>
+                        <li id="menu-academico"><a href="/Requisicao/Historico"><i class="glyphicon glyphicon-book"></i> <span>Histórico das Requisições</span> </a></li>
+                    }
+
+                    else if (Session["NivelAcesso"].Equals(0))
+                    {
+                        <li id="menu-academico">
+                            <a href="#"><i class="glyphicon glyphicon-plus"></i> <span>Empresas</span> <span class="fa fa-angle-right" style="float: right"></span> </a>
+                            <ul id="menu-academico-sub">
+                                <li id="menu-academico-avaliacoes"><a href="/Empresa/CadastrarEmpresa">Cadastrar Empresa</a></li>
+                                <li id="menu-academico-boletim"><a href="/Empresa/ListarEmpresas">Listar Empresas</a></li>
+                            </ul>
+                        </li>
+
+                        <li id="menu-academico">
+                            <a href="#"><i class="glyphicon glyphicon-file"></i> <span>Requisição de Compra</span> <span class="fa fa-angle-right" style="float: right"></span> </a>
+                            <ul id="menu-academico-sub">
+                                <li id="menu-academico-avaliacoes"><a href="/Requisicao/CadastrarRequisicao">Solicitar Requisição</a></li>
+                                <li id="menu-academico-boletim"><a href="/Requisicao/ListarRequisicoes">Listar Requisições</a></li>
+                                <li id="menu-academico-boletim"><a href="/Requisicao/ListarOrcamentos">Requisições em Orçamento</a></li>
+                            </ul>
+                        </li>
+                        <li id="menu-academico"><a href="/Requisicao/ListarRequisicoesAprovadas"><i class="glyphicon glyphicon-thumbs-up"></i> <span>Requisições Aprovadas</span> </a></li>
+                        <li id="menu-academico"><a href="/Requisicao/Historico"><i class="glyphicon glyphicon-book"></i> <span>Histórico das Requisições</span> </a></li>
+                       
+
+                    }
+
+                    <li id="menu-academico"><a href="/Home/Home"><i class="glyphicon glyphicon-remove"></i> <span>Sair do Requisição</span> </a></li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <script>
+            var toggle = true;
+
+            $(".sidebar-icon").click(function () {
+                if (toggle) {
+                    $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                    $("#menu span").css({ "position": "absolute" });
+                }
+                else {
+                    $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                    setTimeout(function () {
+                        $("#menu span").css({ "position": "relative" });
+                    }, 400);
+                }
+
+                toggle = !toggle;
+            });
+        </script>
+    </div><!--//page-container-->
+    <!--js -->
+    <script src="~/js/jquery.nicescroll.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+</body>
+</html>

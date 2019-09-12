@@ -1,0 +1,114 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Recuperar Senha</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="~/css/icon-font.min.css" type='text/css' />
+    <!-- /js -->
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <!-- //js-->
+
+    <script>
+        // FUNÇAO - SOMENTE LETRAS
+        function Onlynumbers(e) {
+            var tecla = new Number();
+            if (window.event) {
+                tecla = e.keyCode;
+            }
+            else if (e.which) {
+                tecla = e.which;
+            }
+            else {
+                return true;
+            }
+            if ((tecla >= "97") && (tecla <= "122")) {
+                return false;
+            }
+        }
+    </script>
+
+    <script>
+        //FUNÇÃO MASCARA CADASTRO
+        function formatar(mascara, documento){
+        var i = documento.value.length;
+        var saida = mascara.substring(0,1);
+        var texto = mascara.substring(i)
+
+        if (texto.substring(0,1) != saida){
+                documento.value += texto.substring(0,1);
+             }
+
+        }
+    </script>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+    <div class="error_page">
+                
+        <div class="error-top">
+            <img class="logo" src="~/img/logo6.png" />
+
+            <div class="login">
+                <p></p><p></p>
+                <h3 class="inner-tittle t-inner">Recuperar Senha</h3>
+
+                <form method="post">
+
+
+                    <input class="inputUsuario" id="nif" name="nif" placeholder="Digite o NIF" required="" onkeypress="return Onlynumbers(event)" />
+
+                    <input class="inputDocumento" id="cpf" name="cpf" placeholder="Digite o CPF 000.000.000-00" required="" maxlength="14" onkeyup="formatar('###.###.###-##', this)"  />
+
+                    <input class="inputDataNascimento" type="date" id="dataNascimento" name="dataNascimento" required="" placeholder="Digite a Data de Nascimento 00/00/0000" maxlength="10" onkeyup="formatar('##/##/####', this)" />
+
+                    <input class="inputEmail" type="email" id="email" name="email" required="" placeholder="Digite o Email" />
+
+                    <p></p>
+                    <input class="botao" type="submit" id="entrar" name="entrar" value="Avançar" />
+
+                    <p></p>
+                    <a href="/Login/Index"> <input class="botao" type="button" name="voltar" value="Voltar" /> </a>
+
+                    <p class="vermelho"><b> @(ViewBag.Mensagem) </b></p>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!--//login-->
+    <!--footer section start-->
+    <div class="footer">     
+        <p>Copyright© 2017 - Developed by Diego Fernandes, Luccas Adriano & Ricardo Carneiro</p>
+    </div>
+    <!--footer section end-->
+    <!--js -->
+    <script src="~/js/jquery.nicescroll.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+</body>
+</html>

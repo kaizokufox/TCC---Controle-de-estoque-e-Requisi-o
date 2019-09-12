@@ -1,0 +1,1213 @@
+﻿#login {
+    width: 100%;
+    min-width: 300px;
+    position: relative;
+    line-height: 1.5em;
+    background:  url(../img/fundo.png) repeat;
+    background-size: 80%;
+    
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+/* ***************************  PAGINA - LOGIN  ************************** */
+
+/**************** DIV - CENTRAL ****************/
+#div_central {
+    position: fixed;
+    width: 28%;
+    min-width: 480px;
+    height: 52%;
+    top: 330px;
+    left: 50%;
+    margin-left: -240px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/*------  Imagem - SENAI  ------*/
+
+#imagem{
+   position: fixed;
+    width: 28%;
+    min-width: 380px;
+    top: 30px;
+    left: 50%;
+    margin-bottom: 200px;
+    margin-left: -210px; 
+}
+
+#imagem2{
+    max-width:  250px;
+}
+
+/*------  Titulo  ------*/
+h1.titulo {
+    margin-top: 3%;
+    margin-left: 27%;
+    margin-bottom: 35%;
+    font-family: 'Arial Black';
+    font-size: 28pt;
+    font-style: italic;
+    text-shadow: 5px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/*------  Mensagens  ------*/
+h4.mensagens,
+h4.mensagens1  {
+    margin-top: 10%;
+    margin-left: 20%;
+    font-family: mensch;
+    font-size: 14pt;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+h4.mensagens1 {
+    margin-top: 20%;
+}
+
+#mensagemLogin {
+    position: relative;
+    top: 300px;
+    left: 43.2%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16pt;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+/*------  Caixas de Entradas - NIF e Senha  ------*/
+input.login {
+    width: 60%;
+    height: 35px;
+    margin-bottom: 3%;
+    margin-left: 20%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+}
+
+/*------  Botao  ------*/
+input.botao {
+    width: 150px;
+    height: 40px;
+    margin-top: 6%;
+    margin-left: 34%;
+   
+    font-family: mensch;
+    font-size: 16pt;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    background: rgba(218, 37, 28,1);
+}
+
+
+/**************** DIV - RODAPÉ ****************/
+#div_rodape {
+    position: fixed;
+    width: 100%;
+    height: 8%;
+    bottom: 0;
+    left: 0;
+    background-color: rgb( 33, 33, 33);
+}
+
+/*------  Rodape  ------*/
+p.rodape {
+    margin-top: 1.5%;
+    text-align: center;
+    font-family: 'BankGothic Lt BT';
+    font-size: 11pt;
+    color: #ffffff;
+}
+
+/*/ ***************************  PAGINA - LOGIN  ************************** */
+
+/* ***************************  PAGINA - HOME  ************************** */
+@import url('reset.css');
+
+@import url('widgets.css');
+
+@import url('elements.css');
+
+@import url('comments.css');
+
+@import url('../js/poshytip-1.1/src/tip-yellow/tip-yellow.css');
+
+@import url('isotope.css');
+/*
+* Folder v1.0
+*
+*/
+/* Vars ----------------------------------------------------*/ /* Mixins ----------------------------------------------------*/ /* IMPORT ------------------------------------------------------------*/
+/* aditional */
+/* Fonts ----------------------------------------------------*/ /* Here you go ie */
+@font-face {
+    font-family: 'mensch';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/mensch-webfont.eot');
+}
+/* For real web browsers */
+@font-face {
+    font-family: 'mensch';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/mensch-webfont.ttf');
+}
+/* GENERAL ------------------------------------------------------------*/
+.cf:after,
+.cf:before {
+    content: "";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    zoom: 1;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 940px;
+    position: relative;
+}
+
+
+#body_list{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    background: #f1efef url(../img/grunge.png) repeat-x center 150px;
+    width: 99.5%;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    background: #f1efef url(../img/grunge.png) repeat-x center 150px;
+    width: 99.5%;
+}
+
+    body a {
+        text-decoration: none;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+    body p {
+        margin-bottom: 21px;
+    }
+
+#main h1,
+#main h2,
+#main h3,
+#main h4,
+#main h5,
+#main h6 {
+    font-family: mensch;
+    line-height: 1.3em;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 14px;
+}
+/* HEADER ----------------------------------------------------*/
+header {
+    background: url(../img/fundo.png);
+    min-height: 200px;
+    height: 200%;
+    width: 99.6%;
+    margin-bottom: 130px;
+}
+
+    header #logo:hover {
+        opacity: 0.8;
+    }
+
+    header #logo img {
+        display: block;
+        margin: 30px auto;
+    }
+
+#lista{
+    background: url(../img/fundo.png);
+    min-height: 200px;
+    height: 200%;
+    width: 99.6%;
+    margin-bottom: 130px;
+    margin: 8px;
+}
+
+    header #lista #logo:hover {
+        opacity: 0.8;
+    }
+
+    header #lista #logo img {
+        display: block;
+        margin: 30px auto;
+    }
+
+
+/* NAVIGATION ------------------------------------------------------------*/
+nav {
+    height: 83px;
+    float: left;
+    width: 100%;
+    margin-top: -10px;
+    position: relative;
+    background: url(../img/ribbon1.png) no-repeat top center;
+}
+
+#nav {
+    clear: left;
+    display: block;
+    float: right;
+    position: relative;
+    right: 50%;
+    text-align: center;
+}
+
+    #nav > li {
+        display: block;
+        float: left;
+        position: relative;
+        left: 50%;
+        font-family: mensch;
+        word-spacing: -0.1em;
+        font-size: 22px;
+        /* sub navigation -----------------------------------------------------*/
+    }
+
+        #nav > li.current-menu-item i {
+            display: block;
+            top: -24px;
+        }
+
+        #nav > li.current-menu-item i {
+            display: block;
+            top: -24px;
+        }
+
+        #nav > li a {
+            display: block;
+            padding: 20px 0px 0px 38px;
+            color: #f3e4c8;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+
+         #nav > li  #home{
+            display: block;
+            padding: 0px 16px 0px 40px;
+            color: #f3e4c8;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+
+            #nav > li a:hover i {
+                display: block;
+            }
+
+            #nav > li a i {
+                display: none;
+                min-width: 16px;
+                height: 16px;
+                position: absolute;
+                left: 50%;
+                margin-left: 9px;
+                top: -4px;
+            }
+
+                #nav > li a i b {
+                    position: absolute;
+                    display: block;
+                    background: url(../img/current.png) no-repeat 0px 0px;
+                    width: 16px;
+                    height: 16px;   
+                }
+
+        #nav > li ul {
+            font-size: 18px;
+            font-family: mensch;
+            text-align: left;
+            margin-left: 5%;
+            word-spacing: -0.1em;
+            box-shadow: 0px 3px 0 0 rgba(0, 0, 0, 0.1);
+        }
+
+            #nav > li ul li {
+                border-top: 1px solid rgb(182, 0 ,0);
+                border-bottom: 1px solid  rgb(160, 0 ,0);
+            }
+
+                #nav > li ul li a {
+                    padding: 15px;
+                    background: rgb(185, 0 ,0);
+                }
+
+                    #nav > li ul li a:hover {
+                        background: #a03a26;
+                    }
+
+                #nav > li ul li:last-child {
+                    border-bottom: none;
+                }
+/* COMBO NAVIGATION ------------------------------------------------------------*/
+#comboNav {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    float: left;
+}
+/* MAIN ----------------------------------------------------*/
+#main .wrapper {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    min-height: 500px;
+    color: #444;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+/* HEALINE ----------------------------------------------------*/
+.headline {
+    color: rgb(196, 37, 37);
+    text-align: center;
+    font-family: mensch;
+    font-size: 48px;
+    line-height: 1.3em;
+    word-spacing: -0.1em;
+    text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5);
+    padding-top: 55px;
+}
+
+#headline2 {
+    color: rgb(196, 37, 37);
+    text-align: center;
+    font-family: mensch;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.3em;
+    word-spacing: -0.1em;
+    text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5);
+    margin-top: 20%;
+
+}
+
+/* FEATURE ----------------------------------------------------*/
+
+.feature {
+    width: 960px;
+    margin-left: -20px;
+    overflow: hidden;
+}
+
+    .feature li,
+    .feature .exclusivo {
+        position: relative;
+        background: #ebeaea;
+        width: 300px;
+        height: 170px;
+        margin: 100px 80px -30px 100px;
+        box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: block;
+    }
+
+    .feature .exclusivo {
+        margin-bottom: 70px;
+    }
+
+    .feature li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+        clear: both; /* forçamos a quebra de linha por segurança...                  */
+        float: left; /* ... e o alinhamos à esquerda.                                */
+    }
+
+    .feature li .thumb {
+        display: block;
+        margin: 0px 10px;
+        width: 280px;
+    }
+
+        .feature li .thumb img {
+            max-width: 100%;
+        }
+
+    .feature li a {
+        color: #cb5432;
+    }
+
+    .feature li .thumb {
+        position: relative;
+    }
+
+        .feature li .thumb .date {
+            position: absolute;
+            bottom: -25px;
+            left: 110px;
+            display: block;
+            -moz-border-radius: 40px 40px 40px 40px;
+            -webkit-border-radius: 40px 40px 40px 40px;
+            border-radius: 40px 40px 40px 40px;
+            height: 50px;
+            width: 60px;
+            background: #f3e4c8;
+            float: left;
+            font-family: mensch;
+            padding-top: 10px;
+        }
+
+            .feature li .thumb .date span {
+                display: block;
+                text-align: center;
+                font-size: 20px;
+                line-height: 20px;
+            }
+/* PAGE CONTENT ----------------------------------------------------*/
+.page-content {
+    position: relative;
+    background: #f3e4c8;
+    color: #585246;
+    padding: 50px 30px 60px 30px;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+    .page-content .heading {
+        border-bottom: 5px solid #585246;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+    }
+
+    .page-content .c-1,
+    .page-content .c-2,
+    .page-content .c-3,
+    .page-content .c-4 {
+        position: absolute;
+        width: 48px;
+        height: 50px;
+    }
+
+    .page-content .c-1 {
+        top: 0px;
+        left: 0px;
+        background: url(../img/corner-1.png) no-repeat top left;
+    }
+
+    .page-content .c-2 {
+        top: 0px;
+        right: 0px;
+        background: url(../img/corner-2.png) no-repeat top left;
+    }
+
+    .page-content .c-3 {
+        bottom: 0px;
+        left: 0px;
+        background: url(../img/corner-3.png) no-repeat top left;
+    }
+
+    .page-content .c-4 {
+        bottom: 0px;
+        right: 0px;
+        background: url(../img/corner-4.png) no-repeat top left;
+    }
+/* CONTACT ------------------------------------------------------------*/
+#map_canvas {
+    display: block;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+/* PORTFOLIO ----------------------------------------------------*/
+.portfolio-content {
+    margin-bottom: 40px;
+}
+
+    .portfolio-content .project-content {
+        float: left;
+        width: 660px;
+    }
+
+    .portfolio-content .project-info {
+        float: right;
+        width: 160px;
+        font-size: 14px;
+        padding-left: 30px;
+        border-left: 1px solid #585246;
+    }
+
+        .portfolio-content .project-info p {
+            margin-bottom: 10px;
+        }
+
+        .portfolio-content .project-info strong {
+            font-weight: bold;
+            display: block;
+        }
+
+        .portfolio-content .project-info a {
+            color: #cb5432;
+        }
+/* RELATED PROJECTS ------------------------------------------------------------*/
+.related-projects {
+    margin-bottom: 80px;
+}
+
+    .related-projects .related-heading {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .related-projects a {
+        color: #444444;
+    }
+
+    .related-projects .related-list li {
+        float: left;
+        width: 300px;
+        text-align: center;
+        margin-right: 20px;
+    }
+
+        .related-projects .related-list li .thumb {
+            background: #f3e4c8;
+            padding: 10px;
+            display: block;
+            line-height: 0em;
+            margin-bottom: 10px;
+            box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.1);
+        }
+
+            .related-projects .related-list li .thumb img {
+                max-width: 100%;
+            }
+
+        .related-projects .related-list li:last-child {
+            margin-right: 0px;
+        }
+/* ENTRY CONTENT ------------------------------------------------------------*/
+.entry-content a {
+    color: #cb5432;
+}
+
+.entry-content strong {
+    font-weight: bold;
+}
+
+.entry-content ul,
+.entry-content ol {
+    margin-left: 20px;
+}
+
+.entry-content ul {
+    list-style: disc;
+}
+
+.entry-content ol {
+    list-style: decimal;
+}
+/* BLOG ------------------------------------------------------------*/
+#posts-list {
+    position: relative;
+    width: 620px;
+    float: left;
+}
+
+    #posts-list article {
+        position: relative;
+        margin-bottom: 50px;
+        padding: 30px;
+        background: #f3e4c8;
+        box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.1);
+    }
+
+        #posts-list article .tape {
+            position: absolute;
+            top: -15px;
+            left: 250px;
+            display: block;
+            width: 122px;
+            height: 35px;
+            background: url(../img/tape.png) no-repeat top left;
+        }
+
+        #posts-list article .feature-image {
+            position: relative;
+            line-height: 0em;
+        }
+
+            #posts-list article .feature-image img {
+                max-width: 100%;
+            }
+
+            #posts-list article .feature-image .entry-date {
+                position: absolute;
+                bottom: -66px;
+                right: 0px;
+                width: 51px;
+                height: 66px;
+                background: url(../img/date.png) no-repeat top left;
+                font-family: mensch;
+                font-size: 20px;
+                line-height: 1.1em;
+                text-align: center;
+                color: #f3e4c8;
+            }
+
+                #posts-list article .feature-image .entry-date .month {
+                    margin-top: 7px;
+                }
+
+        #posts-list article .excerpt {
+            margin-top: 40px;
+            color: #585246;
+        }
+
+            #posts-list article .excerpt .post-heading {
+                font-family: mensch;
+                font-size: 36px;
+                line-height: 1.1em;
+                color: #585246;
+                display: block;
+                max-width: 480px;
+            }
+
+        #posts-list article .meta {
+            display: block;
+            border-top: 1px solid #585246;
+            font-size: 14px;
+            padding-top: 10px;
+        }
+
+            #posts-list article .meta a {
+                color: #cb5432;
+            }
+/* PAGE NAVIGATION ------------------------------------------------------------*/
+#main .page-navigation {
+    position: relative;
+    left: 50%;
+    display: block;
+    margin-bottom: 100px;
+    float: left;
+}
+
+    #main .page-navigation div {
+        position: relative;
+        right: 50%;
+        box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.1);
+    }
+
+        #main .page-navigation div span {
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+    #main .page-navigation a {
+        display: block;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        color: #cb5432;
+        display: block;
+        padding: 10px 15px;
+    }
+
+    #main .page-navigation .nav-next {
+        float: left;
+        margin-right: 20px;
+        background: #f3e4c8 url(../img/arrow-left.png) no-repeat left 12px;
+        padding-left: 20px;
+    }
+
+    #main .page-navigation .nav-previous {
+        float: right;
+        background: #f3e4c8 url(../img/arrow-right.png) no-repeat right 12px;
+        padding-right: 20px;
+    }
+/* SIDEBAR ------------------------------------------------------------*/
+#sidebar {
+    position: relative;
+    width: 260px;
+    float: right;
+    font-size: 14px;
+}
+
+    #sidebar .block {
+        margin-bottom: 40px;
+        padding-bottom: 5px;
+    }
+
+    #sidebar .heading {
+        border-top: 5px solid #444444;
+        border-bottom: 5px solid #444444;
+        margin-bottom: 15px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        line-height: 1.1em;
+        text-align: center;
+    }
+
+    #sidebar li {
+        margin-bottom: 7px;
+    }
+
+    #sidebar a {
+        color: #cb5432;
+    }
+/* FILTERED ITEMS ----------------------------------------------------*/ .isotope-item {
+    z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+
+#filter-buttons {
+    text-align: center;
+    background: url(../img/filter.png) no-repeat top center;
+    height: 47px;
+    margin-bottom: 20px;
+}
+
+    #filter-buttons li {
+        display: inline-block;
+        margin-bottom: 0px;
+    }
+
+        #filter-buttons li a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 0px;
+            margin-right: 0px;
+            line-height: 47px;
+            color: #cb5432;
+        }
+
+        #filter-buttons li .selected {
+            background: url(../img/filter-arrow.png) no-repeat center top;
+        }
+/* COLUMNS LAYOUT----------------------------------------------------------*/
+.one-half,
+.one-third,
+.one-fourth {
+    float: left;
+    margin-bottom: 40px;
+    margin-right: 2.1276%;
+    position: relative;
+}
+
+.one-half {
+    width: 48.9361%;
+}
+
+.one-third {
+    width: 31.9148%;
+}
+
+.one-fourth {
+    width: 23.4042%;
+}
+
+.last {
+    clear: right;
+    margin-right: 0 !important;
+}
+/* FOOTER ----------------------------------------------------*/
+footer {
+    background:  rgb( 33, 33, 33) repeat-x;
+    color: #fff;
+    padding-bottom: 20px;
+    width: 99.6%;    
+}
+
+    footer a {
+        color: #000;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            color: #000;
+        }
+
+    footer #footer-bottom {
+        font-size: 15px;
+        font-family: 'BankGothic Lt BT';
+        text-align: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        padding-top: 30px;
+    }
+
+#ftList {
+    background:  rgb( 33, 33, 33) repeat-x;
+    color: #fff;
+    padding-bottom: 20px;
+    width: 99.6%;    
+    margin: 8px;
+}
+
+    #ftList a {
+        color: #000;
+        text-decoration: none;
+    }
+
+        #ftList a:hover {
+            color: #000;
+        }
+
+    #ftList #footer-bottom {
+        font-size: 15px;
+        font-family: 'BankGothic Lt BT';
+        text-align: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        padding-top: 30px;
+    }
+
+/* ***************************  PAGINA - USUARIO  ************************** */
+
+div.corpo_cadastro {
+    position: relative;
+    width: 20.4%;
+    min-width: 955px;
+    height: 90%;
+    min-height: 717px;
+    left: 50%;
+    margin-left: -480px;
+    margin-top: -95px;
+    background-color: rgba(196, 194, 194, 0.18)
+
+}
+
+
+div.corpo_lista {
+    position: relative;
+    width: 20.9%;
+    min-width: 956px;
+    height: 90%;
+    min-height: 717px;
+    left: 50%;
+    margin-left: -472px;
+    margin-top: 34px;
+    background-color: rgba(196, 194, 194, 0.18)
+
+}
+
+div.form_cadastro {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin-left: 95px;
+    margin-top: 100px;
+    font-family: mensch;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+ul.formu {
+    display: block;
+    list-style: none;
+    margin-left: -40px;
+    margin-top: 40px;
+}
+
+.formu li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    margin-right: 80px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+
+ul.formu_check {
+    display: block;
+    list-style: none;
+    margin-left: 180px;
+    margin-top: 20px;
+}
+
+.formu_check li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    margin-right: 80px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+#aulaSemana {
+    margin-bottom: -200px;
+}
+
+label {
+    font-size: 20px;
+    text-align: left;
+}
+
+#dataNascimento {
+    font-size: 20px;
+    text-align: left;
+    margin-left: 83px;
+}
+
+#celular {
+    text-align: left;
+    margin-left: 38px;
+}
+
+p {
+    margin-top: 40px;
+}
+
+input.caixa_texto {
+    height: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+}
+
+select {
+    position: relative;
+    width: 180px;
+    height: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+}
+
+option {
+    left: 10%;
+}
+
+input.botaoForm {
+    width: 150px;
+    height: 40px;
+    margin-left: 43%;
+    font-family: mensch;
+    font-size: 14pt;
+    font-weight:bold;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    color: rgb(196, 37, 37);
+}
+
+div.mensagemForm {
+    width: 900px;
+    position: absolute;
+    top: 340px;
+    left: 500px;
+    background: rgba(255, 255, 255, 0);
+    z-index: 9999;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14pt;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* ***************************  PAGINA - LISTA USUARIO  ************************** */
+table.lista {
+    position: relative;
+    width: 100%;
+    margin-top: -3%;
+    /* background: BLUE; margin-left: 15px; */
+}
+
+table.calcular {
+    position: relative;
+    width: 100%;
+    margin-top: -3%;
+    margin-bottom: 50px;
+    /* background: BLUE; margin-left: 15px; */
+}
+
+div.form_lista {
+    position: relative;
+    width: 99%;
+    margin-left: 5px;
+    margin-top: 100px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+
+ /* position: relative;
+    width: 80%;
+    margin-left: 95px;
+    margin-top: 100px;
+    font-family: mensch;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+*/    
+}
+#tabela_cargo {
+    padding-left: 500px;
+}
+
+
+thead {
+    font-family: mensch;
+    font-size: 16pt;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+td.tdList,
+ td.tdList1 {
+      padding-top: 15px;
+}
+
+td.tdList {
+      padding-top: 39px;
+}
+
+td.tdIcon {
+      text-align: center;
+      padding-top: 36px;
+}
+
+th, tr {
+    text-align: center;
+}
+#op1 {
+    min-width: 100px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+#op2 {
+    min-width: 250px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#op3 {
+    min-width: 150px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+#opcoes {
+    min-width: 30px;
+}
+
+ul.formu_Curso {
+    display: block;
+    list-style: none;
+    margin-left: -40px;
+    margin-top: 180px;
+}
+
+.formu_Curso li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    margin-right: 80px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+ul.bt_AC li{
+    position:relative;
+    display: block;
+    list-style: none;
+    top: 295px;
+}
+
+.bt_AC li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    left: 70px;
+    margin-right: 300px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+ul.bt_CC li{
+    position:relative;
+    display: block;
+    list-style: none;
+    top: 270px;
+}
+
+.bt_CC li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    left: 70px;
+    margin-right: 300px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+
+ul.bt_UC li{
+    position:relative;
+    display: block;
+    list-style: none;
+    top: 40px;
+}
+
+.bt_UC li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    left: 70px;
+    margin-right: 300px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+ul.bt_TC li{
+    position:relative;
+    display: block;
+    list-style: none;
+    top: 90px;
+}
+
+.bt_TC li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    left: 70px;
+    margin-right: 300px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+ul.bt_LC li{
+    position:relative;
+    display: block;
+    list-style: none;
+    top: 238px;
+}
+
+.bt_LC li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    left: 70px;
+    margin-right: 300px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+ul.bt_FC li{
+    position:relative;
+    display: block;
+    list-style: none;
+    top: 370px;
+}
+
+.bt_FC li:nth-child(odd) { /* este css será aplicato nos LI impares (1, 3, 5... ).         */
+    left: 70px;
+    margin-right: 300px; /* forçamos a quebra de linha por segurança...                  */
+    float: left; /* ... e o alinhamos à esquerda.                                */
+}
+
+label.novo {
+    font-family: mensch;
+    font-size: 16pt;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    margin: 70px  15px 0px 40px;
+}
+
+a.novo {
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    padding-top: 700px;
+}
+#qtdAluno,
+#cpf, 
+#telefone,
+#celular {
+    width: 150px;
+}
+
+i, #lin {
+    color:  rgb(196, 37, 37);
+}
+
+#lin {
+    height: 2px;
+    width: 100%;
+    
+
+}

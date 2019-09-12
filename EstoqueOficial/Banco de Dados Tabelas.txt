@@ -1,0 +1,224 @@
+use DRLTCC;
+
+/**************************************** TABELAS ESTOQUE ****************************************/
+
+create table Cargo(
+	CodigoCargo INTEGER Identity(1,1) PRIMARY KEY NOT NULL, 
+	NomeCargo VARCHAR(25) NOT NULL,
+	NivelCargo INTEGER NOT NULL
+);
+
+create table Usuario(
+	
+	NIF INTEGER NOT NULL PRIMARY KEY,
+	FK_CodigoCargo INTEGER NOT NULL,
+	NomeUsuario VARCHAR(32) NOT NULL,
+	Sobrenome VARCHAR(32) NOT NULL,
+	CPF CHAR(14) NOT NULL,
+	DataNascimento DATE NOT NULL,
+	Email VARCHAR(64) NOT NULL,
+	Senha VARCHAR(40) NOT NULL,
+	FotoUsuario VARBINARY(MAX) NULL,
+
+	FOREIGN KEY (FK_CodigoCargo) REFERENCES Cargo(Codigocargo)
+);
+
+create table Telefone(
+	CodigoTelefone INTEGER Identity(1,1) NOT NULL PRIMARY KEY,
+	FK_NIFUsuario INTEGER NOT NULL,
+	TelefoneFixo CHAR(13) NULL,
+	TelefoneMovel CHAR(14) NULL,
+
+	FOREIGN KEY (FK_NIFUsuario) REFERENCES Usuario(NIF)
+);
+
+create table Curso(
+	CodigoCurso INTEGER PRIMARY KEY Identity(1,1) NOT NULL,
+	FK_NIFUsuario INTEGER NOT NULL,
+	NomeCurso VARCHAR(32) NOT NULL,
+	Duracao INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_NIFUsuario) REFERENCES Usuario(NIF)
+);
+
+Create table Lote(
+	CodigoLote INTEGER PRIMARY KEY Identity(1,1) NOT NULL,
+	FK_NIFUsuario INTEGER NOT NULL,
+	NomeLote VARCHAR(32) NOT NULL,
+	DataEntrada SMALLDATETIME NOT NULL,	
+	Datavalidade DATE NOT NULL,	
+	QtdItens INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_NIFUsuario) REFERENCES Usuario(NIF)
+);
+
+create table Turma(
+	CodigoTurma INTEGER PRIMARY KEY Identity(1,1) NOT NULL,
+	FK_CodigoCurso INTEGER NOT NULL,
+	NomeTurma VARCHAR(20) NOT NULL,
+	QtdAlunos INTEGER NOT NULL,
+	DataInicio DATE NOT NULL,
+	DataTermino DATE NOT NULL,
+	Periodo VARCHAR(10) NOT NULL,
+
+	FOREIGN KEY (FK_CodigoCurso) REFERENCES Curso(CodigoCurso)
+);
+
+create table DiasSemana(
+	CodigoDiasSemana INTEGER PRIMARY KEY Identity(1,1) NOT NULL,
+	DiasSemana INTEGER NOT NULL,
+	FK_CodigoTurma INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_CodigoTurma) REFERENCES Turma(CodigoTurma)
+);
+
+create table Turma_Semana(
+	CodigoTurma_Semana INTEGER PRIMARY KEY Identity(1,1) NOT NULL,
+	FK_CodigoTurma INTEGER NOT NULL,
+	FK_CodigoDiasSemana INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_CodigoTurma) REFERENCES Turma(CodigoTurma),
+	FOREIGN KEY (FK_CodigoDiasSemana) REFERENCES DiasSemana(CodigoDiasSemana)
+);
+
+create table Ingrediente(
+	CodigoIngrediente INTEGER Identity(1,1) PRIMARY KEY NOT NULL,
+	FK_CodigoLote INTEGER NOT NULL,
+	NomeIngrediente VARCHAR(30) NOT NULL,
+	QtdIngrediente INTEGER NOT NULL,
+	UnidadeMedida VARCHAR(10) NOT NULL,
+	NivelRisco INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_CodigoLote) REFERENCES Lote(CodigoLote)
+);
+
+create table IngredienteRetirado(
+	CodigoIngredienteRetirado INTEGER Identity(1,1) PRIMARY KEY NOT NULL,
+	FK_CodigoIngrediente INTEGER NOT NULL,
+	FK_NIFUsuario INTEGER NOT NULL,
+	QtdRetirado INTEGER NOT NULL,
+	DataRetirado SMALLDATETIME NOT NULL,
+
+	FOREIGN KEY (FK_CodigoIngrediente) REFERENCES Ingrediente(CodigoIngrediente),
+	FOREIGN KEY (FK_NIFUsuario) REFERENCES Usuario(NIF)
+);
+
+create table Formulacao(
+	CodigoFormulacao INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	NomeFormulacao VARCHAR(32) NOT NULL
+);
+create table Formu_Ingrediente(
+	CodigoFormu_Ingrediente INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	FK_CodigoIngrediente INTEGER NOT NULL,
+	FK_CodigoFormulacao INTEGER NOT NULL,
+	Porcentagem DECIMAL(4,2) NOT NULL,
+
+	FOREIGN KEY (FK_CodigoIngrediente) REFERENCES Ingrediente(CodigoIngrediente),
+	FOREIGN KEY (FK_CodigoFormulacao) REFERENCES Formulacao (CodigoFormulacao)
+);
+
+/**************************************** TABELAS REQUISIÇÃO ****************************************/
+
+create table TipoRequisicao(
+	CodigoTipoRequisicao INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	NomeTipoRequisicao VARCHAR(15) NOT NULL,
+
+);
+
+create table Status(
+	CodigoStatus INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	NomeStatus VARCHAR(25) NOT NULL,
+
+);
+
+
+create table Requisicao(
+	CodigoRequisicao INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	FK_NIFUsuario INTEGER NOT NULL,
+	FK_TipoRequisicao INTEGER NOT NULL,
+	FK_CodigoStatus INTEGER NOT NULL,
+	DataRequisicao SMALLDATETIME NOT NULL,
+	CentroCusto INTEGER NOT NULL,
+	ContaContabil INTEGER NOT NULL,
+	ContaMemo INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_NIFUsuario) REFERENCES Usuario(NIF),
+	FOREIGN KEY (FK_TipoRequisicao) REFERENCES TipoRequisicao(CodigoTipoRequisicao),
+	FOREIGN KEY (FK_CodigoStatus) REFERENCES Status(CodigoStatus),
+	
+
+);
+
+create table HistoricoRequisicao(
+	CodigoHistoricoRequisicao INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	DataEntrada DATE NOT NULL,
+	FK_CodigoRequisicao INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_CodigoRequisicao) REFERENCES Requisicao (CodigoRequisicao)
+
+);
+
+create table Assinatura(
+	CodigoAssinatura INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	FK_NIFUsuario INTEGER NOT NULL,
+	FK_CodigoRequisicao INTEGER NOT NULL,
+	
+	FOREIGN KEY (FK_NIFUsuario) REFERENCES Usuario(NIF),
+	FOREIGN KEY (FK_CodigoRequisicao) REFERENCES Requisicao(CodigoRequisicao)
+
+);
+
+create table Item(
+	CodigoItem INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	FK_CodigoRequisicao INTEGER NOT NULL,
+	Especificacao VARCHAR(20) NOT NULL,
+	Unidade VARCHAR(20) NOT NULL,
+	QtdItem INTEGER NOT NULL,
+	Finalidade VARCHAR(42),
+
+	FOREIGN KEY (FK_CodigoRequisicao) REFERENCES Requisicao(CodigoRequisicao)
+
+);
+
+
+create table Empresa(
+	CodigoEmpresa INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	NomeEmpresa VARCHAR(20) NOT NULL,
+	Fone CHAR(14) NOT NULL,
+	Contato VARCHAR(20) NOT NULL
+
+	
+);
+
+
+create table Orcamento(
+	CodigoOrcamento INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Unitario DECIMAL(8,2) NOT NULL,
+	Total DECIMAL(8,2) NOT NULL,
+	FK_CodigoEmpresa INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_CodigoEmpresa) REFERENCES Empresa(CodigoEmpresa)
+
+);
+
+create table Item_Orcamento(
+	CodigoItemOrcamento INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	FK_CodigoItem INTEGER NOT NULL,
+	FK_CodigoOrcamento INTEGER NOT NULL,
+
+	FOREIGN KEY (FK_CodigoItem) REFERENCES Item(CodigoItem),
+	FOREIGN KEY (FK_CodigoOrcamento) REFERENCES Orcamento(CodigoOrcamento)
+
+);
+
+
+create table Item_Empresa(
+	CodigoItem_Empresa INTEGER PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	FK_CodigoItem INTEGER NOT NULL,
+	FK_CodigoEmpresa INTEGER NOT NULL
+
+	FOREIGN KEY (FK_CodigoItem) REFERENCES Item(CodigoItem),
+	FOREIGN KEY (FK_CodigoEmpresa) REFERENCES Empresa(CodigoEmpresa)
+
+);
+

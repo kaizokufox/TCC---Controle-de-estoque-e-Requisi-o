@@ -1,0 +1,154 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Usuario</title>
+    <meta name="description" content="">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" media="screen" href="~/Content/superfish.css" />
+    <link rel="stylesheet" href="~/Content/nivo-slider.css" media="all" />
+    <link rel="stylesheet" href="~/Content/tweet.css" media="all" />
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" media="all" href="~/Content/lessframework.css" />
+
+
+    <!-- All JavaScript at the bottom, except this Modernizr build.
+        Modernizr enables HTML5 elements & feature detects for optimal performance.
+        Create your own custom Modernizr build: www.modernizr.com/download/ -->
+    <script src="js/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <!-- header wrapper -->
+        <div class="wrapper cf">
+            <div id="logo">
+                <a href="~/Views/Home/Home.cshtml"><img src="~/img/logo.png" alt="" /></a>
+            </div>
+        </div><!-- ENDS header wrapper -->
+        <!-- nav -->
+        <nav class="cf">
+            <div class="wrapper cf">
+                <ul id="nav" class="sf-menu">
+                    <li><a href="/Home/Home">HOME<i><b></b></i></a></li>
+                    <li>
+                        <a href="page.html">COMO USAR?<i><b></b></i></a>
+                        <ul>
+                            <li><a href="page.html">Geral</a></li>
+                            <li><a href="page-typography.html">Pessoal</a></li>
+                            <li><a href="page-elements.html">Elements</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">SAIR<i><b></b></i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ends nav -->
+
+    </header>
+    <!-- ENDS HEADER -->
+    <!-- FORMULARIO -->
+    <div class="mensagemForm">
+        <p>@(ViewBag.Mensagem) </p>
+    </div>
+
+    <div class="corpo_cadastro">
+
+
+        <form method="post">
+
+            <h1 class="headline"> LISTA DE TURMAS </h1>
+
+            <div class="form_lista">
+                <table class="lista" border="1">
+                    <thead class="lista">
+                        <tr class="lista">
+                            <th class="op2">Nome </th>
+                            <th class="op2">Curso </th>
+                            <th class="op2">Duracao </th>
+                            <th class="op2">Professor(a) </th>
+                            <th id="opcoes"> </th>
+                            <th id="opcoes"> </th>
+                            <th id="opcoes"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var  in ViewBag.Cursos)
+                        {
+                            <tr>
+                                <td>@(C.NomeCurso) <hr /> </td>
+                                <td>@(C.Duracao) <hr /> </td>
+                                <td>
+                                    <a href="/Curso/AlterarCurso/@(C.CodigoCurso)">
+                                        <i style="font-size: 16pt" class="glyphicon glyphicon-pencil" title="Alterar usuário"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/Curso/RemoverCurso/@(C.CodigoCurso)">
+                                        <i style="font-size: 16pt" class="glyphicon glyphicon-trash" title="Remover usuário"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/Turma/CadastrarTurma/@(C.CodigoCurso)">
+                                        <i style="font-size: 16pt" class="glyphicon glyphicon-plus-sign"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </form>
+
+    </div>
+    <!-- ENDS FORMULARIO -->
+    <footer>
+
+        <!-- wrapper -->
+        <div class="wrapper cf">
+            <div id="footer-bottom">Copyright© 2016 - Developed by Diego Fernandes & Laressa Assis. </div>
+        </div><!-- ENDS wrapper -->
+
+
+    </footer>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="~/scripts/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <!-- scripts concatenated and minified via build script -->
+    <script src="~/scripts/custom.js"></script>
+
+    <!-- superfish -->
+    <script src="~/scripts/superfish-1.4.8/js/hoverIntent.js"></script>
+    <script src="~/scripts/superfish-1.4.8/js/superfish.js"></script>
+    <script src="~/scripts/superfish-1.4.8/js/supersubs.js"></script>
+    <!-- ENDS superfish -->
+
+    <script src="~/scripts/jquery.isotope.min.js"></script>
+    <script src="~/scripts/jquery.nivo.slider.js"></script>
+    <script src="~/scripts/css3-mediaqueries.js"></script>
+    <script src="~/scripts/tabs.js"></script>
+    <script src="~/scripts/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+    <!-- end scripts -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Style.css" />
+
+    <title>Login</title>
+</head>
+
+<body>
+
+    <!--********************** DIV - CENTRAL **********************-->
+    <div class="mensagemForm">
+        <p>@(ViewBag.Mensagem) </p>
+    </div> 
+
+    <div id="div_central">
+        <form method="post">
+
+            <img class="imagem" src="http://sb24horas.com.br/wp-content/uploads/2014/03/logo-senai.jpg" />
+            <h1 class="titulo"> ESTOQUE </h1>
+
+            <h4 class="mensagens"> Digite o NIF: * </h4>
+            <input class="login" type="number" id="nif" name="nif" />
+
+            <h4 class="mensagens"> Digite a Senha: * </h4>
+            <input class="login" type="password" id="senha" name="senha" />
+
+            <input class="botao" type="submit" id="entrar" name="entrar" value="Entrar" />
+        </form>
+    </div>
+
+    <!--********************** DIV - RODAPÉ **********************-->
+    <div id="div_rodape">
+        <p class="rodape"> Copyright© 2016 - Desenvolvido por Diego Fernandes & Laressa Assis. </p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddPorcentagem</title>
+</head>
+<body>
+    <div> 
+        <form method="post">
+
+            <li>
+                <label for="ingrediente"> Ingrediente :</label>
+                <select id="CodigoIngrediente" name="CodigoIngrediente">
+                    @foreach (var I in ViewBag.Ingredientes)
+                    {
+                        <option value="@(I.CodigoIngrediente)"> @(I.NomeIngrediente)</option>
+                    }
+                </select>
+            </li>
+
+            <li>
+                <label for="porcentagem">Porcentagem:</label>
+                <input class="caixa_texto" type="text" name="porcentagem" size="10" />
+            </li>
+
+            <input class="caixa_texto" type="submit" value="Cadastrar" size="10" />
+        </form>
+
+    </div>
+</body>
+</html>
